@@ -1,0 +1,49 @@
+package com.villanoo.testmanager.domain;
+
+import org.springframework.data.annotation.Id;
+
+import java.util.Date;
+import java.util.List;
+
+public class Patient {
+    @Id
+    private String id;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    private String name;
+    private String surname;
+    private Date dateOfBirth;
+    private List<Order> orders;
+
+}
