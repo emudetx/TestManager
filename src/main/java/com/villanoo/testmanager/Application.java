@@ -35,6 +35,7 @@ public class Application implements CommandLineRunner {
         orderRepository.deleteAll();
         testRepository.deleteAll();
         sampleTypeRepository.deleteAll();
+        patientRepository.deleteAll();
 
         SampleType sampleTypeBlood = new SampleType();
         sampleTypeBlood.setName("Blood");
@@ -45,6 +46,7 @@ public class Application implements CommandLineRunner {
         biochemistryTest.setSampleType(sampleTypeBlood);
         biochemistryTest.setPropA(1);
         biochemistryTest.setPropB(2);
+        biochemistryTest.setPropC("property C");
         biochemistryTest.setBiochemistryProp("bio property");
         testRepository.save(biochemistryTest);
 
@@ -53,6 +55,7 @@ public class Application implements CommandLineRunner {
         hematologyTest.setSampleType(sampleTypeBlood);
         hematologyTest.setPropA(1);
         hematologyTest.setPropB(2);
+        biochemistryTest.setPropC("another property");
         hematologyTest.setHematologyProp("hematology property");
         testRepository.save(hematologyTest);
 
