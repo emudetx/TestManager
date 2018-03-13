@@ -1,6 +1,7 @@
 package com.villanoo.testmanager;
 
 import com.villanoo.testmanager.adapter.OrderRepository;
+import com.villanoo.testmanager.adapter.PatientRepository;
 import com.villanoo.testmanager.adapter.SampleTypeRepository;
 import com.villanoo.testmanager.adapter.TestRepository;
 import com.villanoo.testmanager.domain.*;
@@ -22,6 +23,8 @@ public class Application implements CommandLineRunner {
     private TestRepository testRepository;
     @Autowired
     private SampleTypeRepository sampleTypeRepository;
+    @Autowired
+    private PatientRepository patientRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -45,6 +48,14 @@ public class Application implements CommandLineRunner {
         biochemistryTest.setBiochemistryProp("bio property");
         testRepository.save(biochemistryTest);
 
+        HematologyTest hematologyTest = new HematologyTest();
+        hematologyTest.setName("bio test");
+        hematologyTest.setSampleType(sampleTypeBlood);
+        hematologyTest.setPropA(1);
+        hematologyTest.setPropB(2);
+        hematologyTest.setHematologyProp("hematology property");
+        testRepository.save(hematologyTest);
+
 
         List<AbstractTest> tests = new ArrayList<>();
         tests.add(biochemistryTest);
@@ -53,14 +64,20 @@ public class Application implements CommandLineRunner {
         sampleContainer.setLabel("00001");
         sampleContainer.setTests(tests);
 
+        Patient patient = new Patient();
+        patient.setName("Oscar");
+        patient.setSurname("Villanova");
+        patient.setDateOfBirth(new Date());
+        patientRepository.save(patient);
 
-        final Order order = new Order();
+        Order order = new Order();
         order.setOrderId("Order1");
         order.setDate(new Date());
 
-        final List<SampleContainer> sampleContainers = new ArrayList<>();
+        List<SampleContainer> sampleContainers = new ArrayList<>();
         sampleContainers.add(sampleContainer);
         order.setSampleContainers(sampleContainers);
+        order.setPatient(patient);
         orderRepository.save(order);
 
     }

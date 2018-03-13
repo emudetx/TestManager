@@ -33,17 +33,9 @@ public class Patient {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
 
     private String name;
     private String surname;
     private Date dateOfBirth;
-    private List<Order> orders;
 
 }

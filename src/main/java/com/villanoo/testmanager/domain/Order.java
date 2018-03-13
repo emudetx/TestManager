@@ -1,6 +1,7 @@
 package com.villanoo.testmanager.domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,8 @@ public class Order {
     private Date date;
     private String orderId;
     private List<SampleContainer> sampleContainers;
+    @DBRef
+    private Patient patient;
 
     public Date getDate() {
         return date;
@@ -38,6 +41,11 @@ public class Order {
     }
 
 
+    public Patient getPatient() {
+        return patient;
+    }
 
-
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }
