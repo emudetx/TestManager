@@ -74,4 +74,8 @@ public abstract class AbstractTest {
     public String getOp1Result() {
         return op1();
     }
+
+    public int getOp2Result() {
+        return op2();
+    }
 }

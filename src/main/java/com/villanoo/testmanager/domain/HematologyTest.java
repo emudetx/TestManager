@@ -2,6 +2,8 @@ package com.villanoo.testmanager.domain;
 
 public class HematologyTest extends AbstractTest {
 
+    private String HematologyProp;
+
     public String getHematologyProp() {
         return HematologyProp;
     }
@@ -9,8 +11,6 @@ public class HematologyTest extends AbstractTest {
     public void setHematologyProp(String hematologyProp) {
         HematologyProp = hematologyProp;
     }
-
-    private String HematologyProp;
 
     @Override
     public String op1() {
